@@ -35,6 +35,9 @@ install -D -m 0644 resources/systemd/druid-coordinator.service %{buildroot}/usr/
 %systemd_post druid.service
 
 %changelog
+* Wed Jul 27 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-5
+- Fix systemd service 
+
 * Wed Jul 27 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-4
 - Fix test comments
 

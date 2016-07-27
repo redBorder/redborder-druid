@@ -5,7 +5,7 @@ Description=Druid Coordinator
 User=druid
 Group=druid
 EnvironmentFile=/etc/sysconfig/druid_coordinator
-ExecStart=/usr/lib/redborder/bin/rb_druid_start.sh coordinator
+ExecStart=/usr/lib/redborder/bin/rb_druid_start.sh -c coordinator
 
 [Install]
 WantedBy=multi-user.target

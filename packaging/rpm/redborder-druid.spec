@@ -23,7 +23,7 @@ Requires: bash druid
 %install
 mkdir -p %{buildroot}/usr/lib/redborder/bin
 install -D -m 0755 resources/bin/rb_druid_start.sh %{buildroot}/usr/lib/redborder/bin/rb_druid_start.sh
-install -D -m 0644 resources/systemd/druid.service %{buildroot}/usr/lib/systemd/system/druid.service
+install -D -m 0644 resources/systemd/druid.service %{buildroot}/usr/lib/systemd/system/druid-coordinator.service
 
 %files
 %defattr(0755,root,root)
@@ -35,8 +35,10 @@ install -D -m 0644 resources/systemd/druid.service %{buildroot}/usr/lib/systemd/
 %systemd_post druid.service
 
 %changelog
+* Wed Jul 29 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-2
+- Fixed systemd service
 
-* Tue Jul 28 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-1
+* Wed Jul 29 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-1
 - Added druid as dependency
 - first spec version
 

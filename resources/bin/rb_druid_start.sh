@@ -32,8 +32,8 @@ done
 components_arr=("coordinator" "overlord" "broker" "historical" "middlemanager" "overlord")
 
 if [ "x$component" != "x" ] && in_array;then
-source /etc/sysconfig/druid_$component
-  echo "exec /usr/bin/java ${JAVA_ARGS} -cp /etc/druid/_common:/etc/druid/coordinator:/usr/lib/druid/lib/* io.druid.cli.Main server coordinator"
+  source /etc/sysconfig/druid_$component
+  exec /usr/bin/java ${JAVA_ARGS} -cp /etc/druid/_common:/etc/druid/coordinator:/usr/lib/druid/lib/* io.druid.cli.Main server coordinator
 else
   usage;
 fi

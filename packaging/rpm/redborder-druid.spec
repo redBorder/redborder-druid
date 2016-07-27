@@ -29,7 +29,7 @@ install -D -m 0644 resources/systemd/druid.service %{buildroot}/usr/lib/systemd/
 %defattr(0755,root,root)
 /usr/lib/redborder/bin/rb_druid_start.sh
 %defattr(0644,root,root)
-/usr/lib/systemd/system/druid.service
+/usr/lib/systemd/system/druid-coordinator.service
 
 %post
 %systemd_post druid.service

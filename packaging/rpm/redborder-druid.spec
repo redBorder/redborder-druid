@@ -34,6 +34,10 @@ install -D -m 0644 resources/systemd/druid-middlemanager.service %{buildroot}/us
 /usr/lib/redborder/bin/rb_druid_start.sh
 %defattr(0644,root,root)
 /usr/lib/systemd/system/druid-coordinator.service
+/usr/lib/systemd/system/druid-broker.service
+/usr/lib/systemd/system/druid-overlord.service
+/usr/lib/systemd/system/druid-historical.service
+/usr/lib/systemd/system/druid-middlemanager.service
 
 %post
 %systemd_post druid.service

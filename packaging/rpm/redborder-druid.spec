@@ -39,6 +39,9 @@ install -D -m 0644 resources/systemd/druid-middlemanager.service %{buildroot}/us
 %systemd_post druid.service
 
 %changelog
+* Wed Jul 27 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-7
+- Bugfix on %files spec part
+
 * Wed Jul 27 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-6
 - Add rest of services
 

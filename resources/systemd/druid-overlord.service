@@ -1,0 +1,11 @@
+[Unit]
+Description=Druid Overlord
+
+[Service]
+User=druid
+Group=druid
+EnvironmentFile=/etc/sysconfig/druid_overlord
+ExecStart=/usr/lib/redborder/bin/rb_druid_start.sh -c overlord
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Druid Broker
+
+[Service]
+User=druid
+Group=druid
+EnvironmentFile=/etc/sysconfig/druid_broker
+ExecStart=/usr/lib/redborder/bin/rb_druid_start.sh -c broker
+
+[Install]
+WantedBy=multi-user.target

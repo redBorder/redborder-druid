@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#source /etc/sysconfig/druid-coordinator
-
-
 function usage() {
   echo 
   echo "rb_druid_start.sh [-h] [-c <component>]"
@@ -29,11 +26,17 @@ do
   esac
 done
 
-components_arr=("coordinator" "overlord" "broker" "historical" "middlemanager" "overlord")
+components_arr=("coordinator" "overlord" "broker" "historical" "middleManager" "overlord")
+
+if [ "x$component" == "xmiddlemanager" ];then
+  component_service="middleManager"
+else
+  component_service=$component
+fi
 
 if [ "x$component" != "x" ] && in_array;then
   source /etc/sysconfig/druid_$component
-  exec /usr/bin/java ${JAVA_ARGS} -cp /etc/druid/_common:/etc/druid/coordinator:/usr/lib/druid/lib/* io.druid.cli.Main server coordinator
+  exec /usr/bin/java ${JAVA_ARGS} -cp /etc/druid/_common:/etc/druid/$component:/usr/lib/druid/lib/* io.druid.cli.Main server $component_service
 else
   usage;
 fi

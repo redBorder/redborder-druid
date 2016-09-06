@@ -22,6 +22,7 @@ Requires: bash druid
 
 %install
 mkdir -p %{buildroot}/usr/lib/redborder/bin
+mkdir -p %{buildroot}/usr/lib/druid/lib/
 install -D -m 0755 resources/bin/rb_druid_start.sh %{buildroot}/usr/lib/redborder/bin/rb_druid_start.sh
 install -D -m 0644 resources/lib/sigar-1.6.5.132.jar %{buildroot}/usr/lib/druid/lib/
 install -D -m 0644 resources/systemd/druid-coordinator.service %{buildroot}/usr/lib/systemd/system/druid-coordinator.service
@@ -55,7 +56,7 @@ install -D -m 0644 resources/systemd/druid-middlemanager.service %{buildroot}/us
 - Add rest of services
 
 * Wed Jul 27 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-5
-- Fix systemd service 
+- Fix systemd service
 
 * Wed Jul 27 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-4
 - Fix test comments
@@ -66,7 +67,6 @@ install -D -m 0644 resources/systemd/druid-middlemanager.service %{buildroot}/us
 * Wed Jul 27 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-2
 - Fix systemd service
 
-* Wed Jul 26 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-1
+* Thu Jul 26 2016 Enrique Jimenez <ejimenez@redborder.com> 1.0.0-1
 - Add druid as dependency
 - first spec version
-

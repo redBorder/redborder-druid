@@ -4,7 +4,7 @@ Description=Druid middleManager
 [Service]
 User=druid
 Group=druid
-EnvironmentFile=/etc/sysconfig/druid_middlemanager
+EnvironmentFile=/etc/sysconfig/druid_middleManager
 ExecStart=/usr/lib/redborder/bin/rb_druid_start.sh -c middleManager
 
 [Install]

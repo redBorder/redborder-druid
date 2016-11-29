@@ -26,17 +26,11 @@ do
   esac
 done
 
-components_arr=("coordinator" "overlord" "broker" "historical" "middleManager" "overlord")
-
-if [ "x$component" == "xmiddlemanager" ];then
-  component_service="middleManager"
-else
-  component_service=$component
-fi
+components_arr=("coordinator" "overlord" "broker" "historical" "middleManager")
 
 if [ "x$component" != "x" ] && in_array;then
   source /etc/sysconfig/druid_$component
-  exec /usr/bin/java ${JAVA_ARGS} -cp /etc/druid/_common:/etc/druid/$component:/usr/lib/druid/lib/* io.druid.cli.Main server $component_service
+  exec /usr/bin/java ${JAVA_ARGS} -cp ${CONF_DIR}/_common:${CONF_DIR}/$component:/usr/lib/druid/lib/* io.druid.cli.Main server $component
 else
   usage;
 fi

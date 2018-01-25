@@ -4,7 +4,7 @@ function usage() {
   echo
   echo "rb_druid_start.sh [-h] [-c <component>]"
   echo "  -h -> print this help"
-  echo "  -c component -> start druid component (it can be coordinator, broker, historical, middlemanager or overlord)"
+  echo "  -c component -> start druid component (it can be coordinator, broker, historical, middlemanager, overlord or realtime)"
   echo
   exit 0
 }

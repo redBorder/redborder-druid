@@ -30,6 +30,7 @@ install -D -m 0644 resources/systemd/druid-broker.service %{buildroot}/usr/lib/s
 install -D -m 0644 resources/systemd/druid-overlord.service %{buildroot}/usr/lib/systemd/system/druid-overlord.service
 install -D -m 0644 resources/systemd/druid-historical.service %{buildroot}/usr/lib/systemd/system/druid-historical.service
 install -D -m 0644 resources/systemd/druid-middlemanager.service %{buildroot}/usr/lib/systemd/system/druid-middlemanager.service
+install -D -m 0644 resources/systemd/druid-realtime.service %{buildroot}/usr/lib/systemd/system/druid-realtime.service
 
 %files
 %defattr(0755,root,root)
@@ -41,6 +42,8 @@ install -D -m 0644 resources/systemd/druid-middlemanager.service %{buildroot}/us
 /usr/lib/systemd/system/druid-overlord.service
 /usr/lib/systemd/system/druid-historical.service
 /usr/lib/systemd/system/druid-middlemanager.service
+/usr/lib/systemd/system/druid-realtime.service
+
 
 %post
 %systemd_post druid.service

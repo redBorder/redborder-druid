@@ -49,6 +49,9 @@ install -D -m 0644 resources/systemd/druid-realtime.service %{buildroot}/usr/lib
 %systemd_post druid.service
 
 %changelog
+* Thu Jan 25 2018 Juan J, Chorro <jjchorro@redborder.com> 1.0.0-9
+- Add realtime mode
+
 * Mon Aug 29 2016 Carlos J. Mateos <cjmateos@redborder.com> 1.0.0-8
 - Added SIGAR lib
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage() {
-  echo 
+  echo
   echo "rb_druid_start.sh [-h] [-c <component>]"
   echo "  -h -> print this help"
   echo "  -c component -> start druid component (it can be coordinator, broker, historical, middlemanager or overlord)"
@@ -26,7 +26,7 @@ do
   esac
 done
 
-components_arr=("coordinator" "overlord" "broker" "historical" "middleManager")
+components_arr=("coordinator" "overlord" "broker" "historical" "middleManager" "realtime")
 
 if [ "x$component" != "x" ] && in_array;then
   source /etc/sysconfig/druid_$component

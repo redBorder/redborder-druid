@@ -6,6 +6,7 @@ User=druid
 Group=druid
 EnvironmentFile=/etc/sysconfig/druid_broker
 ExecStart=/usr/lib/redborder/bin/rb_druid_start.sh -c broker
+SuccessExitStatus=143
 
 [Install]
 WantedBy=multi-user.target

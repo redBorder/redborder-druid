@@ -4,7 +4,7 @@ function usage() {
   echo
   echo "rb_druid_start.sh [-h] [-c <component>]"
   echo "  -h -> print this help"
-  echo "  -c component -> start druid component (it can be coordinator, broker, historical, middlemanager, overlord or realtime)"
+  echo "  -c component -> start druid component (it can be coordinator, broker, historical, middlemanager, overlord, indexer, router)"
   echo
   exit 0
 }
@@ -26,11 +26,11 @@ do
   esac
 done
 
-components_arr=("coordinator" "overlord" "broker" "historical" "middleManager" "realtime")
+components_arr=("coordinator" "overlord" "broker" "historical" "middleManager" "indexer", "router")
 
 if [ "x$component" != "x" ] && in_array;then
   source /etc/sysconfig/druid_$component
-  exec /usr/bin/java ${JAVA_ARGS} -cp ${CONF_DIR}/_common:${CONF_DIR}/$component:/usr/lib/druid/lib/* io.druid.cli.Main server $component
+  exec /usr/lib/druid/bin/run-java -Ddruid.node.type=$component -Ddruid.log.path=/usr/lib/druid/bin/log -cp /etc/druid/_common:/etc/druid/$component:/usr/lib/druid/lib/*: org.apache.druid.cli.Main server $component
 else
   usage;
 fi

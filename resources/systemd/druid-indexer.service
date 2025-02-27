@@ -2,8 +2,8 @@
 Description=Druid Indexing Service
 
 [Service]
-User=druid
-Group=druid
+User=root
+Group=root
 EnvironmentFile=/etc/sysconfig/druid_indexer
 ExecStart=/usr/lib/redborder/bin/rb_druid_start.sh -c indexer
 SuccessExitStatus=143

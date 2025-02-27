@@ -26,7 +26,7 @@ do
   esac
 done
 
-components_arr=("coordinator" "overlord" "broker" "historical" "middleManager" "indexer", "router")
+components_arr=("coordinator" "overlord" "broker" "historical" "middleManager" "indexer" "router")
 
 if [ "x$component" != "x" ] && in_array;then
   source /etc/sysconfig/druid_$component

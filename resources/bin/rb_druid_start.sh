@@ -30,7 +30,7 @@ components_arr=("coordinator" "overlord" "broker" "historical" "middleManager" "
 
 if [ "x$component" != "x" ] && in_array;then
   source /etc/sysconfig/druid_$component
-  exec /usr/lib/druid/bin/run-java -Ddruid.node.type=$component -Ddruid.log.path=/usr/lib/druid/bin/log -cp /etc/druid/_common:/etc/druid/$component:/usr/lib/druid/lib/*: org.apache.druid.cli.Main server $component
+  exec /usr/lib/druid/bin/run-java ${JAVA_ARGS} -Ddruid.node.type=$component -Ddruid.log.path=/usr/lib/druid/bin/log -cp /etc/druid/_common:/etc/druid/$component:/usr/lib/druid/lib/*: org.apache.druid.cli.Main server $component
 else
   usage;
 fi

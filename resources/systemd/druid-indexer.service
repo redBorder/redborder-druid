@@ -1,0 +1,12 @@
+[Unit]
+Description=Druid Indexing Service
+
+[Service]
+User=root
+Group=root
+EnvironmentFile=/etc/sysconfig/druid_indexer
+ExecStart=/usr/lib/redborder/bin/rb_druid_start.sh -c indexer
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

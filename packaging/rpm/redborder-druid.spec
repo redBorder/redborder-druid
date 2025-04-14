@@ -24,31 +24,33 @@ Requires: bash druid
 mkdir -p %{buildroot}/usr/lib/redborder/bin
 mkdir -p %{buildroot}/usr/lib/druid/lib/
 install -D -m 0755 resources/bin/rb_druid_start.sh %{buildroot}/usr/lib/redborder/bin/rb_druid_start.sh
-install -D -m 0644 resources/lib/sigar-1.6.5.132.jar %{buildroot}/usr/lib/druid/lib/
 install -D -m 0644 resources/systemd/druid-coordinator.service %{buildroot}/usr/lib/systemd/system/druid-coordinator.service
 install -D -m 0644 resources/systemd/druid-broker.service %{buildroot}/usr/lib/systemd/system/druid-broker.service
 install -D -m 0644 resources/systemd/druid-overlord.service %{buildroot}/usr/lib/systemd/system/druid-overlord.service
 install -D -m 0644 resources/systemd/druid-historical.service %{buildroot}/usr/lib/systemd/system/druid-historical.service
 install -D -m 0644 resources/systemd/druid-middlemanager.service %{buildroot}/usr/lib/systemd/system/druid-middlemanager.service
-install -D -m 0644 resources/systemd/druid-realtime.service %{buildroot}/usr/lib/systemd/system/druid-realtime.service
+install -D -m 0644 resources/systemd/druid-indexer.service %{buildroot}/usr/lib/systemd/system/druid-indexer.service
+install -D -m 0644 resources/systemd/druid-router.service %{buildroot}/usr/lib/systemd/system/druid-router.service
 
 %files
 %defattr(0755,root,root)
 /usr/lib/redborder/bin/rb_druid_start.sh
 %defattr(0644,root,root)
-/usr/lib/druid/lib/sigar-1.6.5.132.jar
 /usr/lib/systemd/system/druid-coordinator.service
 /usr/lib/systemd/system/druid-broker.service
 /usr/lib/systemd/system/druid-overlord.service
 /usr/lib/systemd/system/druid-historical.service
 /usr/lib/systemd/system/druid-middlemanager.service
-/usr/lib/systemd/system/druid-realtime.service
-
+/usr/lib/systemd/system/druid-indexer.service
+/usr/lib/systemd/system/druid-router.service
 
 %post
 %systemd_post druid.service
 
 %changelog
+* Tue Feb 11 2025 Miguel Álvarez <malvarez@redborder.com>
+- Update druid to 31.0.1
+
 * Thu Jan 25 2018 Juan J, Chorro <jjchorro@redborder.com> 1.0.0-9
 - Add realtime mode
 

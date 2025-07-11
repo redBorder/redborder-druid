@@ -32,7 +32,6 @@ install -D -m 0644 resources/systemd/druid-middlemanager.service %{buildroot}/us
 install -D -m 0644 resources/systemd/druid-indexer.service %{buildroot}/usr/lib/systemd/system/druid-indexer.service
 install -D -m 0644 resources/systemd/druid-router.service %{buildroot}/usr/lib/systemd/system/druid-router.service
 
-
 %files
 %defattr(0755,root,root)
 /usr/lib/redborder/bin/rb_druid_start.sh

@@ -52,6 +52,9 @@ java -cp "lib/*" -Ddruid.extensions.directory="extensions" \
      -c "org.apache.druid.extensions.contrib:kafka-emitter:31.0.0"
 
 %changelog
+* Tue Jul 15 2025 Pablo Torres <ptorres@redborder.com>
+- Add druid metrics
+
 * Tue Feb 11 2025 Miguel Álvarez <malvarez@redborder.com>
 - Update druid to 31.0.1
 

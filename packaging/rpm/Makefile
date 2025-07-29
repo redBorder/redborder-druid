@@ -15,6 +15,9 @@ SOURCES:
 	mkdir -p SOURCES
 
 archive: SOURCES
+	cd SOURCES && \
+	wget -nc https://repo1.maven.org/maven2/org/apache/druid/extensions/contrib/kafka-emitter/31.0.0/kafka-emitter-31.0.0.jar && \
+	wget -nc https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.6.1/kafka-clients-3.6.1.jar
 	cd ../../ && \
 	git archive --prefix=$(PACKAGE_NAME)-$(VERSION)/ \
             -o packaging/rpm/SOURCES/$(PACKAGE_NAME)-$(VERSION).tar.gz HEAD

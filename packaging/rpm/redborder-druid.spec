@@ -7,6 +7,9 @@ Summary: Redborder package containing druid files
 License: AGPL 3.0
 URL: https://github.com/redBorder/redborder-druid
 Source0: %{name}-%{version}.tar.gz
+Source1: kafka-clients-3.6.1.jar
+Source2: kafka-emitter-31.0.0.jar
+
 
 BuildRequires: systemd
 
@@ -31,6 +34,9 @@ install -D -m 0644 resources/systemd/druid-historical.service %{buildroot}/usr/l
 install -D -m 0644 resources/systemd/druid-middlemanager.service %{buildroot}/usr/lib/systemd/system/druid-middlemanager.service
 install -D -m 0644 resources/systemd/druid-indexer.service %{buildroot}/usr/lib/systemd/system/druid-indexer.service
 install -D -m 0644 resources/systemd/druid-router.service %{buildroot}/usr/lib/systemd/system/druid-router.service
+mkdir -p %{buildroot}/usr/lib/druid/extensions/kafka-emitter
+cp -a $RPM_SOURCE_DIR/kafka-clients-3.6.1.jar %{buildroot}/usr/lib/druid/extensions/kafka-emitter/
+cp -a $RPM_SOURCE_DIR/kafka-emitter-31.0.0.jar %{buildroot}/usr/lib/druid/extensions/kafka-emitter/
 
 %files
 %defattr(0755,root,root)
@@ -43,6 +49,8 @@ install -D -m 0644 resources/systemd/druid-router.service %{buildroot}/usr/lib/s
 /usr/lib/systemd/system/druid-middlemanager.service
 /usr/lib/systemd/system/druid-indexer.service
 /usr/lib/systemd/system/druid-router.service
+/usr/lib/druid/extensions/kafka-emitter/kafka-clients-3.6.1.jar
+/usr/lib/druid/extensions/kafka-emitter/kafka-emitter-31.0.0.jar
 
 %post
 %systemd_post druid.service

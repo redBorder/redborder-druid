@@ -54,10 +54,6 @@ cp -a $RPM_SOURCE_DIR/kafka-emitter-31.0.0.jar %{buildroot}/usr/lib/druid/extens
 
 %post
 %systemd_post druid.service
-cd /usr/lib/druid
-java -cp "lib/*" -Ddruid.extensions.directory="extensions" \
-     org.apache.druid.cli.Main tools pull-deps \
-     -c "org.apache.druid.extensions.contrib:kafka-emitter:31.0.0"
 
 %changelog
 * Tue Jul 15 2025 Pablo Torres <ptorres@redborder.com>
